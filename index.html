@@ -1,1 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FierceFlow Digital Quiz</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #030c2f;
+      color: #ffffff;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    h1 {
+      font-weight: 600;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .button-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .option-btn {
+      background-color: #c13dfc;
+      color: #ffffff;
+      padding: 1rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .option-btn:hover,
+    .option-btn.selected {
+      background-color: #a12fce;
+      transform: scale(1.03);
+    }
+  </style>
+</head>
+<body>
+  <h1>What's your primary goal for using AI tools?</h1>
+  <div class="button-grid">
+    <button class="option-btn goal-select goal-productivity">Boost Productivity</button>
+    <button class="option-btn goal-select goal-finance">Improve Finances</button>
+    <button class="option-btn goal-select goal-wellness">Enhance Wellness</button>
+    <button class="option-btn goal-select goal-learn">Learn Faster</button>
+    <button class="option-btn goal-select goal-content">Create Content</button>
+  </div>
+
+  <script>
+    document.querySelectorAll('.goal-select').forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Reset styles
+        document.querySelectorAll('.goal-select').forEach(b => {
+          b.classList.remove('selected');
+        });
+
+        // Highlight selected
+        btn.classList.add('selected');
+
+        // Get correct goal class (ignore goal-select)
+        const classList = Array.from(btn.classList);
+        const goalClass = classList.find(cls => cls.startsWith('goal-') && cls !== 'goal-select');
+        const goal = goalClass?.replace('goal-', '');
+
+        console.log("Redirecting with goal:", goal);
+
+        if (goal) {
+          setTimeout(() => {
+            window.location.href = `/comfort-quiz?goal=${goal}`;
+          }, 400);
+        } else {
+          alert("Oops! Couldn't determine your goal. Try again.");
+        }
+      });
+    });
+  </script>
+</body>
+</html>
 
