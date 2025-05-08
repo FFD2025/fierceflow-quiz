@@ -60,24 +60,16 @@
   <script>
     document.querySelectorAll('.goal-select').forEach(btn => {
       btn.addEventListener('click', () => {
-        // Reset styles
-        document.querySelectorAll('.goal-select').forEach(b => {
-          b.classList.remove('selected');
-        });
-
-        // Highlight selected
+        document.querySelectorAll('.goal-select').forEach(b => b.classList.remove('selected'));
         btn.classList.add('selected');
 
-        // Get correct goal class (ignore goal-select)
         const classList = Array.from(btn.classList);
         const goalClass = classList.find(cls => cls.startsWith('goal-') && cls !== 'goal-select');
         const goal = goalClass?.replace('goal-', '');
 
-        console.log("Redirecting with goal:", goal);
-
         if (goal) {
           setTimeout(() => {
-            window.location.href = `/comfort-quiz?goal=${goal}`;
+            window.location.href = `comfort-quiz.html?goal=${goal}`;
           }, 400);
         } else {
           alert("Oops! Couldn't determine your goal. Try again.");
@@ -87,4 +79,3 @@
   </script>
 </body>
 </html>
-
