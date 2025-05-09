@@ -12,21 +12,41 @@
       background-color: #030c2f;
       color: #ffffff;
       padding: 2rem;
-      text-align: center;
+    }
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 1rem;
+      margin-bottom: 3rem;
+    }
+
+    .logo {
+      height: 60px;
+    }
+
+    .contact {
+      font-size: 0.9rem;
     }
 
     h1 {
       font-weight: 600;
-      font-size: 2rem;
+      font-size: 2.2rem;
+      text-align: center;
       margin-bottom: 2rem;
     }
 
     .button-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 1rem;
       max-width: 800px;
       margin: 0 auto;
+    }
+
+    .button-full {
+      grid-column: span 2;
     }
 
     .option-btn {
@@ -48,13 +68,18 @@
   </style>
 </head>
 <body>
+  <div class="top-bar">
+    <img src="https://fierceflowdigital.com/wp-content/uploads/2024/02/fierceflow-logo-icon.png" alt="FierceFlow Digital Logo" class="logo">
+    <div class="contact">📧 contact@fierceflowdigital.com</div>
+  </div>
+
   <h1>What's your primary goal for using AI tools?</h1>
   <div class="button-grid">
-    <button class="option-btn goal-select goal-productivity">Boost Productivity</button>
-    <button class="option-btn goal-select goal-finance">Improve Finances</button>
-    <button class="option-btn goal-select goal-wellness">Enhance Wellness</button>
-    <button class="option-btn goal-select goal-learn">Learn Faster</button>
-    <button class="option-btn goal-select goal-content">Create Content</button>
+    <button class="option-btn goal-select goal-productivity">Boost Productivity & automate tasks</button>
+    <button class="option-btn goal-select goal-content">Create Content faster and better</button>
+    <button class="option-btn goal-select goal-finance">Manage my finances & budget smarter</button>
+    <button class="option-btn goal-select goal-wellness">Support my emotional wellbeing</button>
+    <button class="option-btn goal-select goal-learn button-full">Learn faster & stay ahead</button>
   </div>
 
   <script>
